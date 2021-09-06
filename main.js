@@ -10,19 +10,41 @@ const randomNum = document.querySelector('#randomNum');
 const reset = document.querySelector('#reset');
 const submit = document.querySelector('#submit');
 
+
 submit.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+    calc();
 })
 
 function calc() {
-   btns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        console.log(e.target.innerText);
-        if(e.target.innerText === '+') {
-          result.text = Number(firstNumber.innerText) + Number(secondNumber.innerText);
-          console.log(result.innerText)
-        }
+    btns.forEach(btn => {
+        console.log(btn.innerHTML)
+        btn.addEventListener('click', () => {
+          if(btn.innerHTML === '+') {
+            result.value = Number(firstNumber.value) + Number(secondNumber.value);
+            // firstNumber.value = '';
+            // secondNumber.value = '';
+            return result;
+          }
+          if(btn.innerHTML === '-') {
+            result.value = Number(firstNumber.value) - Number(secondNumber.value);
+            // firstNumber.value = '';
+            // secondNumber.value = '';
+            return result;
+          }
+          if(btn.innerHTML === '*') {
+            result.value = Number(firstNumber.value) * Number(secondNumber.value);
+            // firstNumber.value = '';
+            // secondNumber.value = '';
+            return result;
+          }
+          if(btn.innerHTML === '/') {
+            result.value = Number(firstNumber.value) / Number(secondNumber.value);
+            // firstNumber.value = '';
+            // secondNumber.value = '';
+            return result;
+          }
+       })
     })
-})
 }
+//console.log(calc());
