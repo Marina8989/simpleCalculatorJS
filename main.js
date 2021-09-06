@@ -22,29 +22,55 @@ function calc() {
         btn.addEventListener('click', () => {
           if(btn.innerHTML === '+') {
             result.value = Number(firstNumber.value) + Number(secondNumber.value);
-            // firstNumber.value = '';
-            // secondNumber.value = '';
             return result;
           }
           if(btn.innerHTML === '-') {
             result.value = Number(firstNumber.value) - Number(secondNumber.value);
-            // firstNumber.value = '';
-            // secondNumber.value = '';
             return result;
           }
           if(btn.innerHTML === '*') {
             result.value = Number(firstNumber.value) * Number(secondNumber.value);
-            // firstNumber.value = '';
-            // secondNumber.value = '';
             return result;
           }
           if(btn.innerHTML === '/') {
             result.value = Number(firstNumber.value) / Number(secondNumber.value);
-            // firstNumber.value = '';
-            // secondNumber.value = '';
             return result;
           }
        })
     })
 }
-//console.log(calc());
+randomNum.addEventListener('click', () => {
+    let one = Math.floor(Math.random() * 100);
+    let two = Math.floor(Math.random() * 100);
+    const act = ['-', '+', '*', '/'];
+    let x;
+    for(let i = 0; i <= act.length; i++) {
+      x = Math.floor(Math.random() * act.length);
+    }
+    firstNumber.value = one;
+    secondNumber.value = two
+    x = act[x];
+    
+    if(x === '-') {
+      result.value = Number(firstNumber.value) - Number(secondNumber.value);
+      return result;
+    }
+    if(x === '+') {
+      result.value = Number(firstNumber.value) + Number(secondNumber.value);
+      return result;
+    }
+    if(x === '*') {
+      result.value = Number(firstNumber.value) * Number(secondNumber.value);
+      return result;
+    }
+    if(x === '/') {
+      result.value = Number(firstNumber.value) / Number(secondNumber.value);
+      return result;
+    }
+})
+
+reset.addEventListener('click', () => {
+    firstNumber.value = '';
+    secondNumber.value = '';
+    result.value = '';
+})
